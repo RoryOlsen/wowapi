@@ -92,4 +92,12 @@ public class WowApi {
 	public CharacterProfile getCharacterProfileByRealmAndName (String realmName, String characterName) {
 		return readValue("/api/wow/character/" + realmName + "/" + characterName, CharacterProfile.class);
 	}
+	
+	public Quest getQuestById (long questId) {
+		return readValue("/api/wow/quest/" + questId, Quest.class);
+	}
+	
+	public RealmStatus getRealmStatus() {
+		return readValue("/api/wow/realm/status", RealmStatus.class);
+	}
 }

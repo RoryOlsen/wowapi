@@ -1,5 +1,6 @@
 package net.papertowels.wowapi;
 
+
 public class BattlePetAbility {
 	private int cooldown;
 	private String icon;
@@ -9,6 +10,7 @@ public class BattlePetAbility {
 	private long petTypeId;
 	private int rounds;
 	private boolean showHints;
+	private boolean hideHints;
 	private int slot;
 	
 	public int getCooldown() {
@@ -29,10 +31,10 @@ public class BattlePetAbility {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public boolean isPassive() {
+	public boolean getIsPassive() {
 		return isPassive;
 	}
-	public void setPassive(boolean isPassive) {
+	public void setIsPassive(boolean isPassive) {
 		this.isPassive = isPassive;
 	}
 	public String getName() {
@@ -53,7 +55,7 @@ public class BattlePetAbility {
 	public void setRounds(int rounds) {
 		this.rounds = rounds;
 	}
-	public boolean isShowHints() {
+	public boolean getShowHints() {
 		return showHints;
 	}
 	public void setShowHints(boolean showHints) {
@@ -64,5 +66,11 @@ public class BattlePetAbility {
 	}
 	public void setSlot(int slot) {
 		this.slot = slot;
+	}
+	public boolean getHideHints() {
+		return hideHints;
+	}
+	public void setHideHints(boolean hideHints) {
+		this.hideHints = hideHints;
 	}
 }

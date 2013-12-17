@@ -6,7 +6,7 @@ public class WowApiTest {
 
 	@Test
 	public void testApiParsing() {
-		WowApi api = new WowApi("us");
+		WowApi api = new WowApi("us", true);
 		api.getAchievementById(2144);
 		api.getAuctionByRealm("sargeras");
 		api.getBattlePetAbilityById(640);

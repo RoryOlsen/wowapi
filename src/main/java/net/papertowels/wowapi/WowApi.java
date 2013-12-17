@@ -6,6 +6,7 @@ import java.net.URL;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class WowApi {
@@ -19,7 +20,14 @@ public class WowApi {
 		System.out.println(new ReflectionToStringBuilder(character).toString());
 	}
 	
-	public WowApi(String region) {
+	public WowApi(String region){
+		this(region, false);
+	}
+	
+	public WowApi(String region, boolean testMode) {
+		if (!testMode) {
+			mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		}
 		switch (region.toUpperCase()) {
 			case "US":
 				host = "us.battle.net";

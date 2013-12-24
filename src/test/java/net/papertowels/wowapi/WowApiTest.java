@@ -17,5 +17,6 @@ public class WowApiTest {
 		api.getQuestById(13146);
 		api.getSpellById(8056);
 		api.getRealmStatus();
+		api.getRecipeById(33994);
 	}
 }

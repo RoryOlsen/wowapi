@@ -108,4 +108,8 @@ public class WowApi {
 	public RealmStatus getRealmStatus() {
 		return readValue("/api/wow/realm/status", RealmStatus.class);
 	}
+	
+	public Recipe getRecipeById(long id) {
+		return readValue("/api/wow/recipe/" + id, Recipe.class);
+	}
 }

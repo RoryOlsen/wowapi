@@ -1,11 +1,28 @@
 package net.papertowels.wowapi;
 
 import java.util.Date;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CharacterProfile {
+	
+	public static enum CharacterProfileField {
+		ACHIEVEMENTS("achievements"), APPEARANCE("appearance"), FEED("feed"), GUILD("guild"), HUNTER_PETS("hunterPets"), ITEMS("items"),
+		MOUNTS("mounts"), PETS("pets"), PET_SLOTS("petSlots"), PROFESSIONS("professions"), PROGRESSION("progression"), PVP("pvp"),
+		QUESTS("quests"), REPUTATION("reputation"), STATS("stats"), TALENTS("talents"), TITLES("titles");
+		
+		private String characterProfileField;
+		
+		CharacterProfileField(String characterProfileField) {
+			this.characterProfileField = characterProfileField;
+		}
+		
+		public String getCharacterProfileField() {
+			return characterProfileField;
+		}
+	}
 
 	private int achievementPoints;
 	private String battlegroup;
@@ -19,6 +36,109 @@ public class CharacterProfile {
 	private String realm;
 	private String thumbnail;
 	private int totalHonorableKills;
+	
+	
+	private CharacterProfileAchievement achievements;
+	private Appearance appearance;
+	private Guild guild;
+	private HunterPet hunterPets;
+	private CharacterProfileItemSet items;
+	private CharacterProfileMounts mounts;
+	private CharacterProfilePet pets;
+	private List<Long> quests;
+	private List<Reputation> reputation;
+	private Stats stats;
+	private List<Title> titles;
+	
+	
+
+	public CharacterProfilePet getPets() {
+		return pets;
+	}
+
+	public void setPets(CharacterProfilePet pets) {
+		this.pets = pets;
+	}
+
+	public CharacterProfileAchievement getAchievements() {
+		return achievements;
+	}
+
+	public void setAchievements(CharacterProfileAchievement achievements) {
+		this.achievements = achievements;
+	}
+
+	public Appearance getAppearance() {
+		return appearance;
+	}
+
+	public void setAppearance(Appearance appearance) {
+		this.appearance = appearance;
+	}
+
+	public Guild getGuild() {
+		return guild;
+	}
+
+	public void setGuild(Guild guild) {
+		this.guild = guild;
+	}
+
+	public HunterPet getHunterPets() {
+		return hunterPets;
+	}
+
+	public void setHunterPets(HunterPet hunterPets) {
+		this.hunterPets = hunterPets;
+	}
+
+	public CharacterProfileItemSet getItems() {
+		return items;
+	}
+
+	public void setItems(CharacterProfileItemSet items) {
+		this.items = items;
+	}
+
+	public CharacterProfileMounts getMounts() {
+		return mounts;
+	}
+
+	public void setMounts(CharacterProfileMounts mounts) {
+		this.mounts = mounts;
+	}
+
+	public List<Long> getQuests() {
+		return quests;
+	}
+
+	public void setQuests(List<Long> quests) {
+		this.quests = quests;
+	}
+
+	public List<Reputation> getReputation() {
+		return reputation;
+	}
+
+	public void setReputation(List<Reputation> reputation) {
+		this.reputation = reputation;
+	}
+
+	public Stats getStats() {
+		return stats;
+	}
+
+	public void setStats(Stats stats) {
+		this.stats = stats;
+	}
+
+	public List<Title> getTitles() {
+		return titles;
+	}
+
+	public void setTitles(List<Title> titles) {
+		this.titles = titles;
+	}
 
 	public int getAchievementPoints() {
 		return achievementPoints;

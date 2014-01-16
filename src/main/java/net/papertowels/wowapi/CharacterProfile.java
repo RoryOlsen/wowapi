@@ -7,18 +7,18 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class CharacterProfile {
-	
+
 	public static enum CharacterProfileField {
 		ACHIEVEMENTS("achievements"), APPEARANCE("appearance"), FEED("feed"), GUILD("guild"), HUNTER_PETS("hunterPets"), ITEMS("items"),
 		MOUNTS("mounts"), PETS("pets"), PET_SLOTS("petSlots"), PROFESSIONS("professions"), PROGRESSION("progression"), PVP("pvp"),
 		QUESTS("quests"), REPUTATION("reputation"), STATS("stats"), TALENTS("talents"), TITLES("titles");
-		
+
 		private String characterProfileField;
-		
+
 		CharacterProfileField(String characterProfileField) {
 			this.characterProfileField = characterProfileField;
 		}
-		
+
 		public String getCharacterProfileField() {
 			return characterProfileField;
 		}
@@ -36,8 +36,7 @@ public class CharacterProfile {
 	private String realm;
 	private String thumbnail;
 	private int totalHonorableKills;
-	
-	
+
 	private CharacterProfileAchievement achievements;
 	private Appearance appearance;
 	private Guild guild;
@@ -45,12 +44,28 @@ public class CharacterProfile {
 	private CharacterProfileItemSet items;
 	private CharacterProfileMounts mounts;
 	private CharacterProfilePet pets;
+	private Pvp pvp;
 	private List<Long> quests;
 	private List<Reputation> reputation;
 	private Stats stats;
+	private List<Talent> talents;
 	private List<Title> titles;
-	
-	
+
+	public Pvp getPvp() {
+		return pvp;
+	}
+
+	public void setPvp(Pvp pvp) {
+		this.pvp = pvp;
+	}
+
+	public List<Talent> getTalents() {
+		return talents;
+	}
+
+	public void setTalents(List<Talent> talents) {
+		this.talents = talents;
+	}
 
 	public CharacterProfilePet getPets() {
 		return pets;

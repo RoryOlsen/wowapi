@@ -13,7 +13,43 @@ public class Pet {
 	private int qualityId;
 	private long spellId;
 	private PetStats stats;
-	
+	private String battlePetGuid;
+	private boolean isFirstAbilitySlotSelected;
+	private boolean isSecondAbilitySlotSelected;
+	private boolean isThirdAbilitySlotSelected;
+
+	public boolean getIsFirstAbilitySlotSelected() {
+		return isFirstAbilitySlotSelected;
+	}
+
+	public void setIsFirstAbilitySlotSelected(boolean isFirstAbilitySlotSelected) {
+		this.isFirstAbilitySlotSelected = isFirstAbilitySlotSelected;
+	}
+
+	public boolean getIsSecondAbilitySlotSelected() {
+		return isSecondAbilitySlotSelected;
+	}
+
+	public void setIsSecondAbilitySlotSelected(boolean isSecondAbilitySlotSelected) {
+		this.isSecondAbilitySlotSelected = isSecondAbilitySlotSelected;
+	}
+
+	public boolean getIsThirdAbilitySlotSelected() {
+		return isThirdAbilitySlotSelected;
+	}
+
+	public void setIsThirdAbilitySlotSelected(boolean isThirdAbilitySlotSelected) {
+		this.isThirdAbilitySlotSelected = isThirdAbilitySlotSelected;
+	}
+
+	public String getBattlePetGuid() {
+		return battlePetGuid;
+	}
+
+	public void setBattlePetGuid(String battlePetGuid) {
+		this.battlePetGuid = battlePetGuid;
+	}
+
 	public long getBattlePetId() {
 		return battlePetId;
 	}
@@ -110,46 +146,59 @@ public class Pet {
 		private int power;
 		private long speciesId;
 		private int speed;
-		
+
 		public long getBreedId() {
 			return breedId;
 		}
+
 		public void setBreedId(long breedId) {
 			this.breedId = breedId;
 		}
+
 		public int getHealth() {
 			return health;
 		}
+
 		public void setHealth(int health) {
 			this.health = health;
 		}
+
 		public int getLevel() {
 			return level;
 		}
+
 		public void setLevel(int level) {
 			this.level = level;
 		}
+
 		public int getPetQualityId() {
 			return petQualityId;
 		}
+
 		public void setPetQualityId(int petQualityId) {
 			this.petQualityId = petQualityId;
 		}
+
 		public int getPower() {
 			return power;
 		}
+
 		public void setPower(int power) {
 			this.power = power;
 		}
+
 		public long getSpeciesId() {
 			return speciesId;
 		}
+
 		public void setSpeciesId(long speciesId) {
 			this.speciesId = speciesId;
 		}
+
 		public int getSpeed() {
 			return speed;
 		}
+
 		public void setSpeed(int speed) {
 			this.speed = speed;
 		}

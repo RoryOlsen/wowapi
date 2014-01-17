@@ -3,6 +3,7 @@ package net.papertowels.wowapi;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
@@ -102,6 +103,10 @@ public class WowApi {
 		return readValue("/api/wow/character/" + realmName + "/" + characterName, CharacterProfile.class);
 	}
 
+	public CharacterProfile getCharacterProfileWithOptions(String realmName, String characterName, CharacterProfile.CharacterProfileField ... fields) {
+		return getCharacterProfileWithOptions(realmName, characterName, Arrays.asList(fields));
+	}
+	
 	public CharacterProfile getCharacterProfileWithOptions(String realmName, String characterName, List<CharacterProfile.CharacterProfileField> fields) {
 		StringBuilder optionsParameter = new StringBuilder();
 		for (CharacterProfile.CharacterProfileField option : fields) {
@@ -110,7 +115,7 @@ public class WowApi {
 			}
 			optionsParameter.append(option.getCharacterProfileField());
 		}
-		return readValue("api/wow/character/" + realmName + "/" + characterName + "?fields=" + optionsParameter, CharacterProfile.class);
+		return readValue("/api/wow/character/" + realmName + "/" + characterName + "?fields=" + optionsParameter, CharacterProfile.class);
 	}
 
 	public Quest getQuestById(long questId) {

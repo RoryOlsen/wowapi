@@ -6,7 +6,7 @@ public class CharacterProfileItemSet {
 
 	private int averageItemLevel;
 	private int averageItemLevelEquipped;
-	private CharacterProfileItem back; 
+	private CharacterProfileItem back;
 	private CharacterProfileItem chest;
 	private CharacterProfileItem feet;
 	private CharacterProfileItem finger1;
@@ -21,8 +21,7 @@ public class CharacterProfileItemSet {
 	private CharacterProfileItem trinket2;
 	private CharacterProfileItem waist;
 	private CharacterProfileItem wrist;
-	
-	
+
 	public int getAverageItemLevel() {
 		return averageItemLevel;
 	}
@@ -166,69 +165,122 @@ public class CharacterProfileItemSet {
 		private String name;
 		private int quality;
 		private List<CharacterProfileItemStats> stats;
-		private ToolTip toolTipParams;
-		
+		private ToolTip tooltipParams;
+		private int itemLevel;
+		private WeaponInfo weaponInfo;
+
+		public WeaponInfo getWeaponInfo() {
+			return weaponInfo;
+		}
+
+		public void setWeaponInfo(WeaponInfo weaponInfo) {
+			this.weaponInfo = weaponInfo;
+		}
+
+		public int getItemLevel() {
+			return itemLevel;
+		}
+
+		public void setItemLevel(int itemLevel) {
+			this.itemLevel = itemLevel;
+		}
+
 		public int getArmor() {
 			return armor;
 		}
+
 		public void setArmor(int armor) {
 			this.armor = armor;
 		}
+
 		public List<CharacterProfileItemStats> getStats() {
 			return stats;
 		}
+
 		public void setStats(List<CharacterProfileItemStats> stats) {
 			this.stats = stats;
 		}
+
 		public String getIcon() {
 			return icon;
 		}
+
 		public void setIcon(String icon) {
 			this.icon = icon;
 		}
+
 		public long getId() {
 			return id;
 		}
+
 		public void setId(long id) {
 			this.id = id;
 		}
+
 		public String getName() {
 			return name;
 		}
+
 		public void setName(String name) {
 			this.name = name;
 		}
+
 		public int getQuality() {
 			return quality;
 		}
+
 		public void setQuality(int quality) {
 			this.quality = quality;
 		}
-		public ToolTip getToolTipParams() {
-			return toolTipParams;
+
+		public ToolTip getTooltipParams() {
+			return tooltipParams;
 		}
-		public void setToolTipParams(ToolTip toolTipParams) {
-			this.toolTipParams = toolTipParams;
+
+		public void setTooltipParams(ToolTip tooltipParams) {
+			this.tooltipParams = tooltipParams;
 		}
 	}
-	
+
 	public static class CharacterProfileItemStats {
 		private int amount;
 		private int stat;
-		
+		private int reforgedAmount;
+		private boolean reforged;
+
+		public boolean getReforged() {
+			return reforged;
+		}
+
+		public void setReforged(boolean reforged) {
+			this.reforged = reforged;
+		}
+
+		public int getReforgedAmount() {
+			return reforgedAmount;
+		}
+
+		public void setReforgedAmount(int reforgedAmount) {
+			this.reforgedAmount = reforgedAmount;
+		}
+
 		public int getAmount() {
 			return amount;
 		}
+
 		public void setAmount(int amount) {
 			this.amount = amount;
 		}
+
 		public int getStat() {
 			return stat;
 		}
+
 		public void setStat(int stat) {
 			this.stat = stat;
 		}
 	}
+
 	public static class ToolTip {
 		private int reforge;
 		private long enchant;
@@ -239,7 +291,24 @@ public class CharacterProfileItemSet {
 		private long transmogItem;
 		private boolean extraSocket;
 		private Upgrade upgrade;
-		
+		private long seed;
+		private int suffix;
+
+		public long getSeed() {
+			return seed;
+		}
+
+		public void setSeed(long seed) {
+			this.seed = seed;
+		}
+
+		public int getSuffix() {
+			return suffix;
+		}
+
+		public void setSuffix(int suffix) {
+			this.suffix = suffix;
+		}
 
 		public boolean getExtraSocket() {
 			return extraSocket;
@@ -313,29 +382,105 @@ public class CharacterProfileItemSet {
 			this.reforge = reforge;
 		}
 	}
-	
+
 	public static class Upgrade {
 		private long current;
 		private long itemLevelIncrement;
 		private int total;
-		
+
 		public long getCurrent() {
 			return current;
 		}
+
 		public void setCurrent(long current) {
 			this.current = current;
 		}
+
 		public long getItemLevelIncrement() {
 			return itemLevelIncrement;
 		}
+
 		public void setItemLevelIncrement(long itemLevelIncrement) {
 			this.itemLevelIncrement = itemLevelIncrement;
 		}
+
 		public int getTotal() {
 			return total;
 		}
+
 		public void setTotal(int total) {
 			this.total = total;
 		}
+	}
+
+	public static class WeaponInfo {
+		private Damage damage;
+		private double dps;
+		private double weaponSpeed;
+
+		public Damage getDamage() {
+			return damage;
+		}
+
+		public void setDamage(Damage damage) {
+			this.damage = damage;
+		}
+
+		public double getDps() {
+			return dps;
+		}
+
+		public void setDps(double dps) {
+			this.dps = dps;
+		}
+
+		public double getWeaponSpeed() {
+			return weaponSpeed;
+		}
+
+		public void setWeaponSpeed(double weaponSpeed) {
+			this.weaponSpeed = weaponSpeed;
+		}
+
+	}
+
+	public static class Damage {
+		private double exactMax;
+		private double exactMin;
+		private long max;
+		private long min;
+
+		public double getExactMax() {
+			return exactMax;
+		}
+
+		public void setExactMax(double exactMax) {
+			this.exactMax = exactMax;
+		}
+
+		public double getExactMin() {
+			return exactMin;
+		}
+
+		public void setExactMin(double exactMin) {
+			this.exactMin = exactMin;
+		}
+
+		public long getMax() {
+			return max;
+		}
+
+		public void setMax(long max) {
+			this.max = max;
+		}
+
+		public long getMin() {
+			return min;
+		}
+
+		public void setMin(long min) {
+			this.min = min;
+		}
+
 	}
 }

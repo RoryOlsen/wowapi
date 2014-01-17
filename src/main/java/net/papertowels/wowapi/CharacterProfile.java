@@ -3,6 +3,8 @@ package net.papertowels.wowapi;
 import java.util.Date;
 import java.util.List;
 
+import net.papertowels.wowapi.feed.FeedItem;
+
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
@@ -39,17 +41,54 @@ public class CharacterProfile {
 
 	private CharacterProfileAchievement achievements;
 	private Appearance appearance;
+	private List<FeedItem> feed;
 	private Guild guild;
 	private HunterPet hunterPets;
 	private CharacterProfileItemSet items;
 	private CharacterProfileMounts mounts;
 	private CharacterProfilePet pets;
+	private List<PetSlot> petSlots;
+	private ProfessionSet professions;
+	private Progression progression;
 	private Pvp pvp;
 	private List<Long> quests;
 	private List<Reputation> reputation;
 	private Stats stats;
 	private List<Talent> talents;
 	private List<Title> titles;
+	
+	
+	public List<FeedItem> getFeed() {
+		return feed;
+	}
+
+	public void setFeed(List<FeedItem> feed) {
+		this.feed = feed;
+	}
+
+	public List<PetSlot> getPetSlots() {
+		return petSlots;
+	}
+
+	public void setPetSlots(List<PetSlot> petSlots) {
+		this.petSlots = petSlots;
+	}
+
+	public ProfessionSet getProfessions() {
+		return professions;
+	}
+
+	public void setProfessions(ProfessionSet professions) {
+		this.professions = professions;
+	}
+
+	public Progression getProgression() {
+		return progression;
+	}
+
+	public void setProgression(Progression progression) {
+		this.progression = progression;
+	}
 
 	public Pvp getPvp() {
 		return pvp;

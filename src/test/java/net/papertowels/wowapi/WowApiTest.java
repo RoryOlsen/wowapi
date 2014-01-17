@@ -1,5 +1,7 @@
 package net.papertowels.wowapi;
 
+import net.papertowels.wowapi.CharacterProfile.CharacterProfileField;
+
 import org.junit.Test;
 
 public class WowApiTest {
@@ -18,5 +20,7 @@ public class WowApiTest {
 		api.getSpellById(8056);
 		api.getRealmStatus();
 		api.getRecipeById(33994);
+		api.getCharacterProfileWithOptions("sargeras", "papërtowels", CharacterProfileField.values());
 	}
+
 }

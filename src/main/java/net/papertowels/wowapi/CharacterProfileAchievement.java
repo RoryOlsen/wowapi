@@ -8,7 +8,7 @@ public class CharacterProfileAchievement {
 	private List achievementsCompletedTimestamp;
 	private List criteria;
 	private List criteriaCreated;
-	private List criteriaQuanity;
+	private List criteriaQuantity;
 	private List criteriaTimestamp;
 	
 	public List getAchievementsCompleted() {
@@ -35,11 +35,11 @@ public class CharacterProfileAchievement {
 	public void setCriteriaCreated(List criteriaCreated) {
 		this.criteriaCreated = criteriaCreated;
 	}
-	public List getCriteriaQuanity() {
-		return criteriaQuanity;
+	public List getCriteriaQuantity() {
+		return criteriaQuantity;
 	}
-	public void setCriteriaQuanity(List criteriaQuanity) {
-		this.criteriaQuanity = criteriaQuanity;
+	public void setCriteriaQuantity(List criteriaQuanity) {
+		this.criteriaQuantity = criteriaQuanity;
 	}
 	public List getCriteriaTimestamp() {
 		return criteriaTimestamp;

@@ -11,6 +11,7 @@ import net.papertowels.wowapi.battlepet.BattlePetSpecies;
 import net.papertowels.wowapi.battlepet.BattlePetStats;
 import net.papertowels.wowapi.challenge.ChallengeSet;
 import net.papertowels.wowapi.characterprofile.CharacterProfile;
+import net.papertowels.wowapi.guildprofile.GuildProfile;
 import net.papertowels.wowapi.pvp.Pvp;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
@@ -143,5 +144,16 @@ public class WowApi {
 	
 	public Pvp getPvpRankingsByBracket (Pvp.Bracket bracket) {
 		return readValue("/api/wow/leaderboard/" + bracket.getBracket(), Pvp.class);
+	}
+	
+	public GuildProfile getGuildProfileByRealmAndName (String realmName, String guildName, List<GuildProfile.GuildProfileField> fields) {
+		StringBuilder optionsParameter = new StringBuilder();
+		for(GuildProfile.GuildProfileField option: fields) {
+			if(!optionsParameter.toString().isEmpty()) {
+				optionsParameter.append(",");
+			}
+			optionsParameter.append(option.getGuildProfileField());
+		}
+		return readValue("/api/wow/guild/" + realmName + "/" + guildName + "?fields=" + optionsParameter, GuildProfile.class);
 	}
 }

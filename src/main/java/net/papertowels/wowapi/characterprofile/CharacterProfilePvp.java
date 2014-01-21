@@ -2,7 +2,7 @@ package net.papertowels.wowapi.characterprofile;
 
 import java.util.Map;
 
-public class Pvp {
+public class CharacterProfilePvp {
 
 	private Map<String, Bracket> brackets;
 

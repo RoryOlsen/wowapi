@@ -1,6 +1,7 @@
 package net.papertowels.wowapi;
 
 import net.papertowels.wowapi.characterprofile.CharacterProfile.CharacterProfileField;
+import net.papertowels.wowapi.pvp.Pvp;
 
 import org.junit.Test;
 
@@ -22,6 +23,8 @@ public class WowApiTest {
 		api.getRecipeById(33994);
 		api.getCharacterProfileWithOptions("sargeras", "papërtowels", CharacterProfileField.values());
 		api.getChallengesForRealm("Sargeras");
+		for (Pvp.Bracket bracket : Pvp.Bracket.values()) {
+			api.getPvpRankingsByBracket(bracket);
+		}	
 	}
-
 }

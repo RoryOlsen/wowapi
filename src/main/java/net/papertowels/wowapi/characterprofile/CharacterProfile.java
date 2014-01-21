@@ -50,7 +50,7 @@ public class CharacterProfile {
 	private List<PetSlot> petSlots;
 	private ProfessionSet professions;
 	private Progression progression;
-	private Pvp pvp;
+	private CharacterProfilePvp pvp;
 	private List<Long> quests;
 	private List<Reputation> reputation;
 	private Stats stats;
@@ -90,11 +90,11 @@ public class CharacterProfile {
 		this.progression = progression;
 	}
 
-	public Pvp getPvp() {
+	public CharacterProfilePvp getPvp() {
 		return pvp;
 	}
 
-	public void setPvp(Pvp pvp) {
+	public void setPvp(CharacterProfilePvp pvp) {
 		this.pvp = pvp;
 	}
 

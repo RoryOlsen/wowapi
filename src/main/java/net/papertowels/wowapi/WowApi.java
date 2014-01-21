@@ -11,6 +11,7 @@ import net.papertowels.wowapi.battlepet.BattlePetSpecies;
 import net.papertowels.wowapi.battlepet.BattlePetStats;
 import net.papertowels.wowapi.challenge.ChallengeSet;
 import net.papertowels.wowapi.characterprofile.CharacterProfile;
+import net.papertowels.wowapi.pvp.Pvp;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
@@ -138,5 +139,9 @@ public class WowApi {
 	
 	public ChallengeSet getChallengesForRealm (String realm) {
 		return readValue("/api/wow/challenge/" + realm, ChallengeSet.class);
+	}
+	
+	public Pvp getPvpRankingsByBracket (Pvp.Bracket bracket) {
+		return readValue("/api/wow/leaderboard/" + bracket.getBracket(), Pvp.class);
 	}
 }

@@ -21,6 +21,7 @@ public class WowApiTest {
 		api.getRealmStatus();
 		api.getRecipeById(33994);
 		api.getCharacterProfileWithOptions("sargeras", "papërtowels", CharacterProfileField.values());
+		api.getChallengesForRealm("Sargeras");
 	}
 
 }

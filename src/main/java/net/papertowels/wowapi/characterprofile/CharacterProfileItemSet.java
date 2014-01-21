@@ -21,6 +21,15 @@ public class CharacterProfileItemSet {
 	private CharacterProfileItem trinket2;
 	private CharacterProfileItem waist;
 	private CharacterProfileItem wrist;
+	private CharacterProfileItem tabard;
+
+	public CharacterProfileItem getTabard() {
+		return tabard;
+	}
+
+	public void setTabard(CharacterProfileItem tabard) {
+		this.tabard = tabard;
+	}
 
 	public int getAverageItemLevel() {
 		return averageItemLevel;

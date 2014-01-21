@@ -9,6 +9,7 @@ import java.util.List;
 import net.papertowels.wowapi.battlepet.BattlePetAbility;
 import net.papertowels.wowapi.battlepet.BattlePetSpecies;
 import net.papertowels.wowapi.battlepet.BattlePetStats;
+import net.papertowels.wowapi.challenge.ChallengeSet;
 import net.papertowels.wowapi.characterprofile.CharacterProfile;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
@@ -133,5 +134,9 @@ public class WowApi {
 
 	public Recipe getRecipeById(long id) {
 		return readValue("/api/wow/recipe/" + id, Recipe.class);
+	}
+	
+	public ChallengeSet getChallengesForRealm (String realm) {
+		return readValue("/api/wow/challenge/" + realm, ChallengeSet.class);
 	}
 }

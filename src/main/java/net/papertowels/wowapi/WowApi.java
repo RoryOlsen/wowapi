@@ -6,6 +6,11 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 
+import net.papertowels.wowapi.battlepet.BattlePetAbility;
+import net.papertowels.wowapi.battlepet.BattlePetSpecies;
+import net.papertowels.wowapi.battlepet.BattlePetStats;
+import net.papertowels.wowapi.characterprofile.CharacterProfile;
+
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;

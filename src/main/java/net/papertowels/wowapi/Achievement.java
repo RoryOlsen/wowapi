@@ -2,6 +2,8 @@ package net.papertowels.wowapi;
 
 import java.util.List;
 
+import net.papertowels.wowapi.characterprofile.AchievementCriteria;
+
 public class Achievement {
 
 	private String title;

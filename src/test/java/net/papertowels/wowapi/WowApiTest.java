@@ -1,6 +1,6 @@
 package net.papertowels.wowapi;
 
-import net.papertowels.wowapi.CharacterProfile.CharacterProfileField;
+import net.papertowels.wowapi.characterprofile.CharacterProfile.CharacterProfileField;
 
 import org.junit.Test;
 

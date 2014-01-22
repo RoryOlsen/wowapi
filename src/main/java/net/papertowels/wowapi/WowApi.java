@@ -1,5 +1,7 @@
 package net.papertowels.wowapi;
 
+import static net.papertowels.wowapi.utils.UrlUtils.encodeUrl;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -11,30 +13,27 @@ import net.papertowels.wowapi.battlepet.BattlePetSpecies;
 import net.papertowels.wowapi.battlepet.BattlePetStats;
 import net.papertowels.wowapi.challenge.ChallengeSet;
 import net.papertowels.wowapi.characterprofile.CharacterProfile;
+import net.papertowels.wowapi.characterprofile.CharacterProfile.CharacterProfileField;
 import net.papertowels.wowapi.guildprofile.GuildProfile;
+import net.papertowels.wowapi.guildprofile.GuildProfile.GuildProfileField;
 import net.papertowels.wowapi.pvp.Pvp;
 
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class WowApi {
 
 	private String host;
 	private ObjectMapper mapper = new ObjectMapper();
-
-	public static void main(String[] args) {
-		WowApi poop = new WowApi("us");
-		CharacterProfile character = poop.getCharacterProfileByRealmAndName("sargeras", "papërtowels");
-		System.out.println(new ReflectionToStringBuilder(character).toString());
-	}
+	private boolean testMode;
 
 	public WowApi(String region) {
 		this(region, false);
 	}
 
 	public WowApi(String region, boolean testMode) {
+		this.testMode = testMode;
 		if (!testMode) {
 			mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		}
@@ -74,6 +73,12 @@ public class WowApi {
 	public <T> T readValue(String path, Class<T> clazz) {
 		try {
 			return mapper.readValue(makeUrl(path), clazz);
+		} catch (JsonMappingException e) {
+			if (testMode) {
+				System.err.println("Encountered exception while calling: " + path);
+				e.printStackTrace();
+			}
+			throw new RuntimeException(e);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -91,8 +96,8 @@ public class WowApi {
 		return readValue("/api/wow/spell/" + spellId, Spell.class);
 	}
 
-	public Auction getAuctionByRealm(String realm) {
-		return readValue("/api/wow/auction/data/" + realm, Auction.class);
+	public Auction getAuctionByRealm(String realmName) {
+		return readValue("/api/wow/auction/data/" + encodeUrl(realmName), Auction.class);
 	}
 
 	public BattlePetAbility getBattlePetAbilityById(long abilityId) {
@@ -108,22 +113,24 @@ public class WowApi {
 	}
 
 	public CharacterProfile getCharacterProfileByRealmAndName(String realmName, String characterName) {
-		return readValue("/api/wow/character/" + realmName + "/" + characterName, CharacterProfile.class);
+		return readValue("/api/wow/character/" + encodeUrl(realmName) + "/" + encodeUrl(characterName), CharacterProfile.class);
 	}
 
-	public CharacterProfile getCharacterProfileWithOptions(String realmName, String characterName, CharacterProfile.CharacterProfileField ... fields) {
+	public CharacterProfile getCharacterProfileWithOptions(String realmName, String characterName, CharacterProfileField... fields) {
 		return getCharacterProfileWithOptions(realmName, characterName, Arrays.asList(fields));
 	}
-	
-	public CharacterProfile getCharacterProfileWithOptions(String realmName, String characterName, List<CharacterProfile.CharacterProfileField> fields) {
+
+	public CharacterProfile getCharacterProfileWithOptions(String realmName, String characterName, List<CharacterProfileField> fields) {
 		StringBuilder optionsParameter = new StringBuilder();
-		for (CharacterProfile.CharacterProfileField option : fields) {
+		for (CharacterProfileField option : fields) {
 			if (!optionsParameter.toString().isEmpty()) {
 				optionsParameter.append(",");
 			}
 			optionsParameter.append(option.getCharacterProfileField());
 		}
-		return readValue("/api/wow/character/" + realmName + "/" + characterName + "?fields=" + optionsParameter, CharacterProfile.class);
+		return readValue(
+				"/api/wow/character/" + encodeUrl(realmName) + "/" + encodeUrl(characterName) + "?fields=" + optionsParameter,
+				CharacterProfile.class);
 	}
 
 	public Quest getQuestById(long questId) {
@@ -137,23 +144,28 @@ public class WowApi {
 	public Recipe getRecipeById(long id) {
 		return readValue("/api/wow/recipe/" + id, Recipe.class);
 	}
-	
-	public ChallengeSet getChallengesForRealm (String realm) {
+
+	public ChallengeSet getChallengesForRealm(String realm) {
 		return readValue("/api/wow/challenge/" + realm, ChallengeSet.class);
 	}
-	
-	public Pvp getPvpRankingsByBracket (Pvp.Bracket bracket) {
+
+	public Pvp getPvpRankingsByBracket(Pvp.Bracket bracket) {
 		return readValue("/api/wow/leaderboard/" + bracket.getBracket(), Pvp.class);
 	}
-	
-	public GuildProfile getGuildProfileByRealmAndName (String realmName, String guildName, List<GuildProfile.GuildProfileField> fields) {
+
+	public GuildProfile getGuildProfileByRealmAndName(String realmName, String guildName, GuildProfileField... fields) {
+		return getGuildProfileByRealmAndName(realmName, guildName, Arrays.asList(fields));
+
+	}
+
+	public GuildProfile getGuildProfileByRealmAndName(String realmName, String guildName, List<GuildProfileField> fields) {
 		StringBuilder optionsParameter = new StringBuilder();
-		for(GuildProfile.GuildProfileField option: fields) {
-			if(!optionsParameter.toString().isEmpty()) {
+		for (GuildProfileField option : fields) {
+			if (!optionsParameter.toString().isEmpty()) {
 				optionsParameter.append(",");
 			}
 			optionsParameter.append(option.getGuildProfileField());
 		}
-		return readValue("/api/wow/guild/" + realmName + "/" + guildName + "?fields=" + optionsParameter, GuildProfile.class);
+		return readValue("/api/wow/guild/" + encodeUrl(realmName) + "/" + encodeUrl(guildName) + "?fields=" + optionsParameter, GuildProfile.class);
 	}
 }

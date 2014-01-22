@@ -226,7 +226,16 @@ public class Talent {
 		private String icon;
 		private long id;
 		private String name;
+		private String powerCost;
 		private String range;
+
+		public String getPowerCost() {
+			return powerCost;
+		}
+
+		public void setPowerCost(String powerCost) {
+			this.powerCost = powerCost;
+		}
 
 		public String getRange() {
 			return range;

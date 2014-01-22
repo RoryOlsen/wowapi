@@ -3,8 +3,9 @@ package net.papertowels.wowapi.guildprofile;
 import java.util.Date;
 import java.util.List;
 
+import net.papertowels.wowapi.Achievement;
 import net.papertowels.wowapi.challenge.Challenge;
-import net.papertowels.wowapi.challenge.Challenge.ChallengeMemberCharacter;
+import net.papertowels.wowapi.challenge.Challenge.Member;
 import net.papertowels.wowapi.characterprofile.CharacterProfileAchievement;
 
 public class GuildProfile {
@@ -31,9 +32,9 @@ public class GuildProfile {
 	private String realm;
 	private Emblem emblem;
 	private Date lastModified;
-	private List<ChallengeMemberCharacter> members;
+	private List<Member> members;
 	private List<NewsItem> news;
-	private Challenge challenge;
+	private List<Challenge> challenge;
 	private long side;
 
 	public List<NewsItem> getNews() {
@@ -60,19 +61,19 @@ public class GuildProfile {
 		this.achievements = achievements;
 	}
 
-	public List<ChallengeMemberCharacter> getMembers() {
+	public List<Member> getMembers() {
 		return members;
 	}
 
-	public void setMembers(List<ChallengeMemberCharacter> members) {
+	public void setMembers(List<Member> members) {
 		this.members = members;
 	}
 
-	public Challenge getChallenge() {
+	public List<Challenge> getChallenge() {
 		return challenge;
 	}
 
-	public void setChallenge(Challenge challenge) {
+	public void setChallenge(List<Challenge> challenge) {
 		this.challenge = challenge;
 	}
 
@@ -185,6 +186,15 @@ public class GuildProfile {
 		private long itemId;
 		private Date timestamp;
 		private String type;
+		private Achievement achievement;
+
+		public Achievement getAchievement() {
+			return achievement;
+		}
+
+		public void setAchievement(Achievement achievement) {
+			this.achievement = achievement;
+		}
 
 		public String getCharacter() {
 			return character;

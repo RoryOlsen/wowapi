@@ -15,6 +15,7 @@ public class CharacterProfileItemSet {
 	private CharacterProfileItem head;
 	private CharacterProfileItem legs;
 	private CharacterProfileItem mainHand;
+	private CharacterProfileItem offHand;
 	private CharacterProfileItem neck;
 	private CharacterProfileItem shoulder;
 	private CharacterProfileItem trinket1;
@@ -22,6 +23,23 @@ public class CharacterProfileItemSet {
 	private CharacterProfileItem waist;
 	private CharacterProfileItem wrist;
 	private CharacterProfileItem tabard;
+	private CharacterProfileItem shirt;
+
+	public CharacterProfileItem getShirt() {
+		return shirt;
+	}
+
+	public void setShirt(CharacterProfileItem shirt) {
+		this.shirt = shirt;
+	}
+
+	public CharacterProfileItem getOffHand() {
+		return offHand;
+	}
+
+	public void setOffHand(CharacterProfileItem offHand) {
+		this.offHand = offHand;
+	}
 
 	public CharacterProfileItem getTabard() {
 		return tabard;
@@ -302,6 +320,15 @@ public class CharacterProfileItemSet {
 		private Upgrade upgrade;
 		private long seed;
 		private int suffix;
+		private long tinker;
+
+		public long getTinker() {
+			return tinker;
+		}
+
+		public void setTinker(long tinker) {
+			this.tinker = tinker;
+		}
 
 		public long getSeed() {
 			return seed;

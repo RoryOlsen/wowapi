@@ -115,14 +115,7 @@ public class Challenge {
 	public static class Member {
 		private ChallengeMemberCharacter character;
 		private ChallengeMemberSpec spec;
-
-		public ChallengeMemberCharacter getCharacter() {
-			return character;
-		}
-
-		public void setCharacter(ChallengeMemberCharacter character) {
-			this.character = character;
-		}
+		private long rank;
 
 		public ChallengeMemberSpec getSpec() {
 			return spec;
@@ -132,6 +125,21 @@ public class Challenge {
 			this.spec = spec;
 		}
 
+		public long getRank() {
+			return rank;
+		}
+
+		public void setRank(long rank) {
+			this.rank = rank;
+		}
+
+		public ChallengeMemberCharacter getCharacter() {
+			return character;
+		}
+
+		public void setCharacter(ChallengeMemberCharacter character) {
+			this.character = character;
+		}
 	}
 
 	public static class ChallengeMemberCharacter {

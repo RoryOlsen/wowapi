@@ -43,7 +43,7 @@ public class CharacterProfile {
 	private Appearance appearance;
 	private List<FeedItem> feed;
 	private Guild guild;
-	private HunterPet hunterPets;
+	private List<HunterPet> hunterPets;
 	private CharacterProfileItemSet items;
 	private CharacterProfileMounts mounts;
 	private CharacterProfilePet pets;
@@ -138,11 +138,11 @@ public class CharacterProfile {
 		this.guild = guild;
 	}
 
-	public HunterPet getHunterPets() {
+	public List<HunterPet> getHunterPets() {
 		return hunterPets;
 	}
 
-	public void setHunterPets(HunterPet hunterPets) {
+	public void setHunterPets(List<HunterPet> hunterPets) {
 		this.hunterPets = hunterPets;
 	}
 

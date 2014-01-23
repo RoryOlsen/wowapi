@@ -2,6 +2,8 @@ package net.papertowels.wowapi.characterprofile;
 
 import java.util.List;
 
+import net.papertowels.wowapi.Spell;
+
 public class Talent {
 
 	private String calcGlyph;
@@ -190,7 +192,7 @@ public class Talent {
 
 	public static class TalentSelection {
 		private int column;
-		private TalentSpell spell;
+		private Spell spell;
 		private int tier;
 
 		public int getColumn() {
@@ -201,11 +203,11 @@ public class Talent {
 			this.column = column;
 		}
 
-		public TalentSpell getSpell() {
+		public Spell getSpell() {
 			return spell;
 		}
 
-		public void setSpell(TalentSpell spell) {
+		public void setSpell(Spell spell) {
 			this.spell = spell;
 		}
 
@@ -216,82 +218,5 @@ public class Talent {
 		public void setTier(int tier) {
 			this.tier = tier;
 		}
-
-	}
-
-	public static class TalentSpell {
-		private String castTime;
-		private String cooldown;
-		private String description;
-		private String icon;
-		private long id;
-		private String name;
-		private String powerCost;
-		private String range;
-
-		public String getPowerCost() {
-			return powerCost;
-		}
-
-		public void setPowerCost(String powerCost) {
-			this.powerCost = powerCost;
-		}
-
-		public String getRange() {
-			return range;
-		}
-
-		public void setRange(String range) {
-			this.range = range;
-		}
-
-		public String getCastTime() {
-			return castTime;
-		}
-
-		public void setCastTime(String castTime) {
-			this.castTime = castTime;
-		}
-
-		public String getCooldown() {
-			return cooldown;
-		}
-
-		public void setCooldown(String cooldown) {
-			this.cooldown = cooldown;
-		}
-
-		public String getDescription() {
-			return description;
-		}
-
-		public void setDescription(String description) {
-			this.description = description;
-		}
-
-		public String getIcon() {
-			return icon;
-		}
-
-		public void setIcon(String icon) {
-			this.icon = icon;
-		}
-
-		public long getId() {
-			return id;
-		}
-
-		public void setId(long id) {
-			this.id = id;
-		}
-
-		public String getName() {
-			return name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-
 	}
 }

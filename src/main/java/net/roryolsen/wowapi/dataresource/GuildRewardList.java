@@ -3,7 +3,7 @@ package net.roryolsen.wowapi.dataresource;
 import java.util.List;
 
 import net.roryolsen.wowapi.Achievement;
-import net.roryolsen.wowapi.Item;
+import net.roryolsen.wowapi.RewardItem;
 
 public class GuildRewardList {
 
@@ -19,7 +19,7 @@ public class GuildRewardList {
 
 	public static class GuildReward {
 		private Achievement achievement;
-		private Item item;
+		private RewardItem item;
 		private int minGuildLevel;
 		private int minGuildRepLevel;
 		private List<Long> races;
@@ -32,11 +32,11 @@ public class GuildRewardList {
 			this.achievement = achievement;
 		}
 
-		public Item getItem() {
+		public RewardItem getItem() {
 			return item;
 		}
 
-		public void setItem(Item item) {
+		public void setItem(RewardItem item) {
 			this.item = item;
 		}
 
@@ -65,4 +65,5 @@ public class GuildRewardList {
 		}
 
 	}
+	
 }

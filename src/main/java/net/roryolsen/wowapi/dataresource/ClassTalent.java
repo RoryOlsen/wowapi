@@ -12,7 +12,16 @@ public class ClassTalent {
 	private String characterClass;
 	private List<TalentGlyph> glyphs;
 	private List<Specialization> specs;
+	private List<Specialization> petSpecs;
 	private List<List<TalentSelection>> talents;
+
+	public List<Specialization> getPetSpecs() {
+		return petSpecs;
+	}
+
+	public void setPetSpecs(List<Specialization> petSpecs) {
+		this.petSpecs = petSpecs;
+	}
 
 	@JsonGetter("class")
 	public String getCharacterClass() {
@@ -47,6 +56,7 @@ public class ClassTalent {
 	public void setTalents(List<List<TalentSelection>> talents) {
 		this.talents = talents;
 	}
+
 	public static class TalentGlyph {
 		private long glyph;
 		private String icon;

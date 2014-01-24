@@ -12,11 +12,13 @@ import net.roryolsen.wowapi.testdata.TestCharacter;
 import net.roryolsen.wowapi.testdata.TestDataLoader;
 import net.roryolsen.wowapi.testdata.TestGuild;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class WowApiTest {
 
 	@Test
+	@Ignore
 	public void testApiParsing() {
 		WowApi usApi = new WowApi("us", true);
 		usApi.getAchievementById(2144);
@@ -42,6 +44,7 @@ public class WowApiTest {
 	}
 
 	@Test
+	@Ignore
 	public void testApiParsingForCharacters() {
 		for (TestCharacter testCharacter : new TestDataLoader().generateTestCharacterList()) {
 			WowApi api = new WowApi(testCharacter.getRegion(), true);
@@ -51,10 +54,26 @@ public class WowApiTest {
 	}
 
 	@Test
+	@Ignore
 	public void testApiParsingForGuilds() {
 		for (TestGuild testGuild : new TestDataLoader().generateTestGuildList()) {
 			WowApi api = new WowApi(testGuild.getRegion(), true);
 			api.getGuildProfileByRealmAndName(testGuild.getRealmName(), testGuild.getGuildName(), GuildProfileField.values());
 		}
+	}
+	
+	@Test
+	public void testApiParsingForDataResources() {
+		WowApi usApi = new WowApi("us", true);
+		usApi.getBattlegroups();
+		usApi.getCharacterAchievements();
+		usApi.getGuildAchievements();
+		usApi.getCharacterRaces();
+		usApi.getCharacterClasses();
+		usApi.getGuildRewards();
+		usApi.getGuildPerks();
+		usApi.getItemClasses();
+		usApi.getPetTypes();
+		usApi.getTalentData();
 	}
 }

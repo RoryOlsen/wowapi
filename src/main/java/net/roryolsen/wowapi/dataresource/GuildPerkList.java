@@ -38,11 +38,29 @@ public class GuildPerkList {
 
 	public static class GuildPerkSpell {
 		private String castTime;
+		private String cooldown;
 		private String description;
 		private String icon;
 		private long id;
 		private String name;
+		private String range;
 		private String subtext;
+
+		public String getRange() {
+			return range;
+		}
+
+		public void setRange(String range) {
+			this.range = range;
+		}
+
+		public String getCooldown() {
+			return cooldown;
+		}
+
+		public void setCooldown(String cooldown) {
+			this.cooldown = cooldown;
+		}
 
 		public String getCastTime() {
 			return castTime;

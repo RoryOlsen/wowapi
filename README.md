@@ -10,7 +10,17 @@ For example, to create an API client for the US region:
 
 ```
 WowApi wowApi = new WowApi(US);
-wowApi.getQuestById(13146);
+Quest quest = wowApi.getQuestById(13146);
 ```
 
 This will return a object of type Quest with the quest data.
+
+When retrieveing character profiles, fields are grouped into options that must be specified when making the API call.
+For example:
+
+```
+WowApi wowApi = new WowApi(US);
+CharcterProfile profile = wowApi.getCharacterProfileWithOptions(
+  "ragnaros", "Tiduus", 
+  CharacterProfileField.ACHIEVEMENTS, CharacterProfileField.MOUNTS);
+```
